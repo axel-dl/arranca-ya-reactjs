@@ -38,17 +38,17 @@ export default function CursosPage() {
     q10: "",
   })
 
+  const router = require('next/navigation').useRouter();
   const handleQuizSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
     if (!quizData.q1 || !quizData.q2.trim()) {
       alert(
         "Por favor, responde al menos la primera pregunta cerrada y la segunda pregunta abierta para obtener tu perfil.",
       )
       return
     }
-
-    setShowQuiz(false)
+    // Mimic navigation to perfil page
+    router.push('/cursos/perfil')
   }
 
   const handleRadioChange = (question: keyof QuizData, value: string) => {
@@ -268,10 +268,8 @@ export default function CursosPage() {
                   Aprende las últimas estrategias para posicionar tu marca y alcanzar nuevos clientes en línea.
                 </p>
                 <div className="flex justify-between gap-2">
-                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm">Comprar</Button>
-                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm">
-                    Añadir a carrito
-                  </Button>
+                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm" onClick={() => router.push('/cursos/compra')}>Comprar</Button>
+                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm" onClick={() => alert('Añadido a carrito (simulado)')}>Añadir a carrito</Button>
                 </div>
               </div>
             </div>
@@ -286,10 +284,8 @@ export default function CursosPage() {
                   Domina los conceptos financieros esenciales para gestionar las cuentas de tu negocio.
                 </p>
                 <div className="flex justify-between gap-2">
-                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm">Comprar</Button>
-                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm">
-                    Añadir a carrito
-                  </Button>
+                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm" onClick={() => router.push('/cursos/compra')}>Comprar</Button>
+                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm" onClick={() => alert('Añadido a carrito (simulado)')}>Añadir a carrito</Button>
                 </div>
               </div>
             </div>
@@ -304,10 +300,8 @@ export default function CursosPage() {
                   Descubre cómo liderar equipos de alto rendimiento y maximizar la productividad.
                 </p>
                 <div className="flex justify-between gap-2">
-                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm">Comprar</Button>
-                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm">
-                    Añadir a carrito
-                  </Button>
+                  <Button className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-4 py-2 text-sm" onClick={() => router.push('/cursos/compra')}>Comprar</Button>
+                  <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 text-sm" onClick={() => alert('Añadido a carrito (simulado)')}>Añadir a carrito</Button>
                 </div>
               </div>
             </div>

@@ -11,6 +11,9 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useState } from "react"
 
+
+import { useRouter } from "next/navigation"
+
 export default function RegistroPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +21,7 @@ export default function RegistroPage() {
     password: "",
     acceptPrivacy: false,
   })
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,7 +36,8 @@ export default function RegistroPage() {
       return
     }
 
-    alert("¡Registro exitoso! Ahora puedes iniciar sesión.")
+    // Mimic navigation to a success page
+    router.push("/registro/exito")
   }
 
   return (
@@ -115,12 +120,17 @@ export default function RegistroPage() {
             >
               Registrarme
             </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full mt-2 border-[#388E3C] text-[#388E3C] hover:bg-[#e8f5e9] font-semibold"
+              onClick={() => router.push('/login')}
+            >
+              ¿Ya tienes cuenta? Inicia sesión
+            </Button>
           </form>
         </div>
       </div>
-
-      {/* Floating Assistant Button */}
-      <MobileAssistantButton />
 
       <Footer />
     </div>

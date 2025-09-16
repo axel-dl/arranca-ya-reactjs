@@ -11,12 +11,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import Image from "next/image"
 
+import { useRouter } from "next/navigation"
+
 export default function AsesoriaPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     business: "",
   })
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,8 +29,8 @@ export default function AsesoriaPage() {
       return
     }
 
-    alert("¡Solicitud de asesoría enviada! Un especialista se pondrá en contacto contigo pronto.")
-    setFormData({ name: "", email: "", business: "" })
+    // Mimic navigation to a success page
+    router.push("/asesoria/exito")
   }
 
   return (

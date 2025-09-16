@@ -1,3 +1,4 @@
+"use client"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -18,16 +19,16 @@ export default function HistoricoPage() {
               <h3 className="text-2xl font-semibold text-[#388E3C]">Compras</h3>
               <div className="flex flex-col sm:flex-row justify-center gap-5 flex-wrap">
                 <Button
-                  asChild
                   className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-7 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => window.location.href = '/historico/registro-nuevo'}
                 >
-                  <Link href="#registro-nuevo">Registro Nuevo</Link>
+                  Registro Nuevo
                 </Button>
                 <Button
-                  asChild
                   className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-7 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => window.location.href = '/historico/reporte-compras'}
                 >
-                  <Link href="#reporte-compras">Reporte</Link>
+                  Reporte
                 </Button>
               </div>
             </div>
@@ -37,16 +38,16 @@ export default function HistoricoPage() {
               <h3 className="text-2xl font-semibold text-[#388E3C]">Ventas</h3>
               <div className="flex flex-col sm:flex-row justify-center gap-5 flex-wrap">
                 <Button
-                  asChild
                   className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-7 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => window.location.href = '/historico/registro-ventas'}
                 >
-                  <Link href="#registro-ventas">Registro de Ventas</Link>
+                  Registro de Ventas
                 </Button>
                 <Button
-                  asChild
                   className="bg-[#388E3C] hover:bg-[#2e7d32] text-white px-7 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => window.location.href = '/historico/registro-foto-voz'}
                 >
-                  <Link href="#registro-foto-voz">Registro por Foto/Voz</Link>
+                  Registro por Foto/Voz
                 </Button>
               </div>
             </div>

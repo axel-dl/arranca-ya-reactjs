@@ -11,23 +11,25 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import Image from "next/image"
 
+import { useRouter } from "next/navigation"
+
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    business: "",
   })
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message || !formData.business) {
       alert("Por favor, rellena todos los campos del formulario.")
       return
     }
-
-    alert("¡Mensaje enviado exitosamente! Te responderemos pronto.")
-    setFormData({ name: "", email: "", message: "" })
+    // Mimic navigation to a success page
+    router.push("/contacto/exito")
   }
 
   return (
@@ -48,9 +50,10 @@ export default function ContactoPage() {
       <div className="flex-1 flex items-center justify-center py-10 px-5">
         <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
           <h2 className="text-3xl font-semibold text-[#388E3C] mb-5">Contáctanos</h2>
-          <p className="text-gray-600 mb-8">Envíanos un mensaje y te responderemos a la brevedad posible.</p>
+          <p className="text-gray-600 mb-8">Envíanos un mensaje o agenda tu asesoría. Te responderemos a la brevedad posible.</p>
 
           <form onSubmit={handleSubmit} className="space-y-6 text-left">
+
             <div>
               <Label htmlFor="name" className="text-sm font-semibold text-gray-700 mb-2 block">
                 Nombre
@@ -76,6 +79,19 @@ export default function ContactoPage() {
                 onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                 className="w-full p-3 border border-gray-300 rounded-lg text-base"
                 required
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="business" className="text-sm font-semibold text-gray-700 mb-2 block">
+                Breve descripción de tu negocio (opcional para asesoría)
+              </Label>
+              <Textarea
+                id="business"
+                value={formData.business}
+                onChange={(e) => setFormData((prev) => ({ ...prev, business: e.target.value }))}
+                className="w-full p-3 border border-gray-300 rounded-lg text-base min-h-24 resize-vertical"
+                rows={4}
               />
             </div>
 
